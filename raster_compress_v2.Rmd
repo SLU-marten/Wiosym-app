@@ -1,0 +1,43 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(raster)
+library(mapview)
+library(RColorBrewer)
+library(climateStability)
+library(png)
+```
+
+```{r}
+name.list <- c("deepfish","pelagicfish","tuna","temppenguins","tempseabirds","rays","sharks","whaleshark","epifauna","dolphin","seacow",
+               "seals","toothedwhale","baleenwhale","turtles","floatlongline","poleandline","crustaceanfishing","demersalgillnet","weightedlongline",
+               "demersaltrawl","pelagicseine")
+```
+
+```{r}
+l <- list.files("./raster_raw/", full.names = T)
+l.short <- list.files("./raster_raw/", full.names = F)
+l
+```
+
+```{r}
+for(i in 1:length(l)){
+  temp <- raster(l[i])
+  temp <- aggregate(temp, fact = 5)
+  temp <- rescale0to1(temp)
+  temp <- temp*100
+  p <- paste0("./raster/",l.short[i])
+  #writeRaster(temp, filename = p, datatype = 'INT2U', COMPRESS=LZW, overwrite = T)
+  temp2 <- 1-temp
+  m <- mapview(temp2, col.regions = brewer.pal(11, "Spectral"))
+  mapshot(m, file = paste0("./png/",name.list[i], ".png"), remove_controls = c("zoomControl", "layersControl", "homeButton", "scaleBar",
+    "drawToolbar", "easyButton"))
+}
+```
+
+
+
+

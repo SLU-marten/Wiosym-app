@@ -1,0 +1,14 @@
+name: wiosym
+title: wiosym
+username:
+account: edsacre
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6288022
+bundleId: 5902386
+url: https://edsacre.shinyapps.io/wiosym/
+when: 1652441149.26839
+lastSyncTime: 1652441149.26839
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: metadata/matrix_short.xlsx|metadata/metadata_sourcesym.csv|metadata/metadata_sourcesym2.csv|raster_compress.nb.html|raster_compress.Rmd|raster_raw

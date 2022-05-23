@@ -1,0 +1,14 @@
+name: map_explo
+title:
+username:
+account: martenerlandsson
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6247475
+bundleId: 5906059
+url: https://martenerlandsson.shinyapps.io/map_explo/
+when: 1652534545.78051
+lastSyncTime: 1652534545.78051
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: raster_compress.Rmd|raster_raw

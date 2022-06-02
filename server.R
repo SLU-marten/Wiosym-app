@@ -258,12 +258,19 @@ shinyServer(function(input, output, session) {
   
   # DISTRIBUTION MAP TAB ----
   # . . . Renders leaflet map ----
-  output$layerMap <- renderLeaflet({   
+  output$layerMap <- renderLeaflet({
     req(input$layerListTable_rows_selected)
-    rast <- -raster(vals$raster) |> projectRasterForLeaflet("ngb")
+    rast <- -raster(vals$raster) |> 
+      projectRasterForLeaflet("ngb")
+    
+    pal <- colorNumeric(
+      c("#d7191c", "#ffffbf", "#2c7bb6"), 
+      values(rast),
+      na.color = "transparent")
+    
     leaflet() |> 
       addTiles() |> 
-      addRasterImage(rast, project = F, opacity = 0.8)
+      addRasterImage(rast, colors = pal, project = F, opacity = 0.8)
   })
   # UNCERTAINTY MAP TAB ----
   # . . . Renders leaflet map ----

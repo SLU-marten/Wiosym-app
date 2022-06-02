@@ -54,16 +54,14 @@ p {
 }
 
 .Rlogo {
-  width: 100%;
+  width: 30vW;
   height: auto;
   margin-left: 20px;
-  max-width: calc(60vh - 250px); 
-  max-height: 100%;
+  max-width: 360px; 
 }
 
 figcaption {
   margin-left: 20px;
-  margin-bottom: 10px;
   font-style: italic;
   padding: 2px;
   font-size: 12px;
